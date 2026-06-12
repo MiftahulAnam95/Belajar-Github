@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 640" role="img" aria-labelledby="title desc">
+  <title id="title">Workflow GitHub untuk pemula</title>
+  <desc id="desc">Laptop dengan panel repository, commit, branch, pull request, dan deploy.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#f7efff"/>
+      <stop offset="0.55" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#e0f7ff"/>
+    </linearGradient>
+    <linearGradient id="purple" x1="0" x2="1">
+      <stop offset="0" stop-color="#7c3aed"/>
+      <stop offset="1" stop-color="#0891b2"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="22" stdDeviation="22" flood-color="#442e72" flood-opacity="0.16"/>
+    </filter>
+  </defs>
+  <rect width="960" height="640" rx="36" fill="url(#bg)"/>
+  <g opacity="0.28">
+    <circle cx="118" cy="110" r="56" fill="#c084fc"/>
+    <circle cx="820" cy="112" r="78" fill="#67e8f9"/>
+    <circle cx="800" cy="520" r="92" fill="#ddd6fe"/>
+  </g>
+  <g stroke="#d8c1ed" stroke-width="2" opacity="0.5">
+    <path d="M98 212h112M118 246h162M704 250h132M662 286h194"/>
+    <path d="M130 438c86-44 134-44 216 0s132 46 208 0 124-50 220-8" fill="none"/>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="182" y="182" width="596" height="346" rx="28" fill="#172033"/>
+    <rect x="208" y="210" width="544" height="286" rx="18" fill="#ffffff"/>
+    <rect x="208" y="210" width="544" height="54" rx="18" fill="#f3e8ff"/>
+    <circle cx="240" cy="237" r="7" fill="#f87171"/>
+    <circle cx="264" cy="237" r="7" fill="#fbbf24"/>
+    <circle cx="288" cy="237" r="7" fill="#4ade80"/>
+    <rect x="328" y="227" width="232" height="20" rx="10" fill="#ffffff"/>
+    <path d="M176 528h608l42 52H134l42-52Z" fill="#24324a"/>
+    <path d="M392 544h176l14 18H378l14-18Z" fill="#101827" opacity="0.55"/>
+  </g>
+  <g>
+    <rect x="238" y="292" width="194" height="152" rx="18" fill="#f8f5ff" stroke="#e9d5ff"/>
+    <path d="M266 328h116M266 360h138M266 392h92" stroke="#7c3aed" stroke-width="14" stroke-linecap="round"/>
+    <rect x="266" y="412" width="62" height="18" rx="9" fill="#dcfce7"/>
+    <rect x="338" y="412" width="58" height="18" rx="9" fill="#e0f2fe"/>
+  </g>
+  <g>
+    <rect x="464" y="292" width="258" height="152" rx="18" fill="#111827"/>
+    <path d="M496 332h100M496 366h160M496 400h116" stroke="#dbeafe" stroke-width="12" stroke-linecap="round"/>
+    <path d="M496 332h20M496 366h20M496 400h20" stroke="#a78bfa" stroke-width="12" stroke-linecap="round"/>
+    <circle cx="674" cy="346" r="18" fill="#7c3aed"/>
+    <path d="M668 346h12M674 340v12" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+  </g>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="7">
+    <path d="M324 520v-42c0-28 22-48 50-48h84" stroke="#7c3aed"/>
+    <path d="M638 520v-40c0-28-22-50-50-50h-76" stroke="#0891b2"/>
+    <path d="M480 520v-70" stroke="#16a34a"/>
+  </g>
+  <g>
+    <circle cx="324" cy="520" r="20" fill="#7c3aed"/>
+    <circle cx="480" cy="520" r="20" fill="#16a34a"/>
+    <circle cx="638" cy="520" r="20" fill="#0891b2"/>
+    <path d="M316 520h16M472 520h16M630 520h16" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="82" y="326" width="184" height="108" rx="20" fill="#ffffff" stroke="#eadcf8"/>
+    <rect x="110" y="356" width="80" height="14" rx="7" fill="#7c3aed"/>
+    <rect x="110" y="384" width="124" height="12" rx="6" fill="#d8c1ed"/>
+    <rect x="110" y="408" width="92" height="12" rx="6" fill="#d8c1ed"/>
+    <circle cx="218" cy="361" r="16" fill="#dcfce7"/>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="710" y="326" width="174" height="110" rx="20" fill="#ffffff" stroke="#eadcf8"/>
+    <path d="M742 378h108" stroke="#7c3aed" stroke-width="12" stroke-linecap="round"/>
+    <path d="M742 406h76" stroke="#d8c1ed" stroke-width="12" stroke-linecap="round"/>
+    <circle cx="760" cy="356" r="14" fill="#e0f2fe"/>
+    <circle cx="802" cy="356" r="14" fill="#fef3c7"/>
+    <circle cx="844" cy="356" r="14" fill="#dcfce7"/>
+  </g>
+</svg>
