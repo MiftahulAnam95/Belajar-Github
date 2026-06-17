@@ -58,15 +58,14 @@ window.GithubLabLayout = (() => {
   };
 
   const renderFooter = () => {
-    const base = basePath();
     const target = document.getElementById("appFooter");
     if (!target) return;
     target.innerHTML = `
       <footer class="site-footer">
         <div class="container">
           <div class="d-flex flex-column flex-lg-row gap-2 justify-content-between">
-            <span>GitHub Beginner Lab - lanjutan belajar web development menuju workflow profesional.</span>
-            <span><a href="${base}materi.html">Materi</a> / <a href="${base}editor.html">Simulator</a> / <a href="${base}progress.html">Progress</a></span>
+            <span>GitHub Beginner Lab - project belajar Git dan GitHub interaktif setelah web dasar.</span>
+            <span>Dibuat untuk membantu pemula memahami workflow GitHub langkah demi langkah.</span>
           </div>
         </div>
       </footer>

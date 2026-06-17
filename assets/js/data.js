@@ -1130,6 +1130,121 @@ git push origin fix-navbar`
     { id: "workflow-pro", title: "Workflow Pro", icon: "bi-award-fill", check: (state) => state.completedLessons.length >= 20 && state.completedDebug.length >= 10 }
   ];
 
+  const learningPhases = [
+    {
+      id: "dasar-github",
+      icon: "bi-github",
+      label: "Materi 01-05",
+      title: "Kenali Git dan GitHub",
+      description: "Pahami kenapa GitHub penting, beda Git dan GitHub, identitas commit, terminal, folder project, dan repository lokal.",
+      outcome: "Kamu tahu apa yang disimpan Git, apa yang ditampilkan GitHub, dan dari folder mana command harus dijalankan.",
+      lessonStart: 0,
+      lessonEnd: 4
+    },
+    {
+      id: "commit-branch",
+      icon: "bi-git",
+      label: "Materi 06-10",
+      title: "Commit, Branch, dan Remote",
+      description: "Latih add, commit, pesan commit, branch, merge, remote origin, dan kapan perubahan siap dikirim.",
+      outcome: "Kamu bisa membuat riwayat perubahan kecil yang rapi dan memisahkan pekerjaan dengan branch.",
+      lessonStart: 5,
+      lessonEnd: 9
+    },
+    {
+      id: "sinkron-publish",
+      icon: "bi-cloud-arrow-up",
+      label: "Materi 11-15",
+      title: "Sinkron, Dokumentasi, dan Publish",
+      description: "Belajar push, pull, README, .gitignore, dan GitHub Pages agar project bisa dibagikan secara profesional.",
+      outcome: "Kamu bisa mengirim commit ke GitHub, menjaga file sensitif, dan membuat project punya dokumentasi serta demo.",
+      lessonStart: 10,
+      lessonEnd: 14
+    },
+    {
+      id: "kolaborasi-pro",
+      icon: "bi-people",
+      label: "Materi 16-20",
+      title: "Kolaborasi Profesional",
+      description: "Gunakan issue, pull request, review, conflict, portfolio, dan etika kerja tim yang umum dipakai di dunia profesional.",
+      outcome: "Kamu siap mengikuti workflow GitHub tim kecil: task, branch, PR, review, merge, dan dokumentasi.",
+      lessonStart: 15,
+      lessonEnd: 19
+    }
+  ];
+
+  const starterFlow = [
+    {
+      icon: "bi-folder2-open",
+      title: "Project ada di folder",
+      description: "Git bekerja dari folder project. Pastikan terminal sedang berada di folder yang benar sebelum menjalankan command."
+    },
+    {
+      icon: "bi-clock-history",
+      title: "Commit menyimpan riwayat",
+      description: "Setiap commit adalah titik riwayat yang menjelaskan perubahan kecil yang sudah kamu pilih."
+    },
+    {
+      icon: "bi-cloud-arrow-up",
+      title: "Push mengirim ke GitHub",
+      description: "Commit lokal belum muncul online sampai kamu mengirimnya ke remote GitHub dengan push."
+    },
+    {
+      icon: "bi-git",
+      title: "Branch dan PR menjaga kerja tim",
+      description: "Branch memisahkan pekerjaan. Pull request membuat perubahan bisa dicek sebelum digabung."
+    }
+  ];
+
+  const homeDemos = [
+    {
+      id: "status",
+      label: "Status",
+      title: "Git status memberi tahu kondisi folder",
+      filename: "terminal",
+      code: `git status`,
+      output: "On branch main\nChanges not staged for commit:\n  modified: index.html",
+      explanation: "git status adalah command pertama saat bingung. Ia memberi tahu branch aktif dan file mana yang berubah.",
+      task: "Jalankan git status sebelum add/commit agar kamu tahu file apa yang akan disimpan."
+    },
+    {
+      id: "commit",
+      label: "Commit",
+      title: "Add dan commit menyimpan perubahan",
+      filename: "terminal",
+      code: `git add index.html
+git commit -m "feat: tambah halaman profil"`,
+      output: "[main abc1234] feat: tambah halaman profil\n1 file changed, 24 insertions(+)",
+      explanation: "git add memilih file yang akan disimpan. git commit membuat catatan riwayat dengan pesan yang menjelaskan perubahan.",
+      task: "Ubah pesan commit agar menjelaskan pekerjaanmu, bukan sekadar menulis update."
+    },
+    {
+      id: "push",
+      label: "Push",
+      title: "Push mengirim commit lokal ke GitHub",
+      filename: "terminal",
+      code: `git remote -v
+git push origin main`,
+      output: "Enumerating objects: 5\nWriting objects: 100%\nTo github.com:username/portfolio-web.git",
+      explanation: "git push mengirim commit dari branch lokal ke repository remote di GitHub.",
+      task: "Cek remote dengan git remote -v sebelum push supaya tidak mengirim ke repository yang salah."
+    },
+    {
+      id: "pr",
+      label: "Pull Request",
+      title: "Pull request membantu review perubahan",
+      filename: "workflow",
+      code: `1. Buat branch fitur
+2. Commit perubahan kecil
+3. Push branch ke GitHub
+4. Buka Pull Request
+5. Review lalu merge`,
+      output: "PR #7 siap direview\nBranch: fitur-navbar\nStatus: checks passed",
+      explanation: "Pull request adalah tempat menjelaskan perubahan, meminta review, dan menggabungkan branch dengan lebih aman.",
+      task: "Tulis deskripsi PR berisi apa yang berubah dan cara mengetesnya."
+    }
+  ];
+
   const editorDefaults = {
     commands: `git init
 git status
@@ -1170,6 +1285,9 @@ https://username.github.io/portfolio-web/`,
     debugChallenges,
     projects,
     badges,
+    learningPhases,
+    starterFlow,
+    homeDemos,
     editorDefaults
   };
 })();
