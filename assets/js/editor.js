@@ -1,6 +1,7 @@
 (() => {
   const data = window.GithubLabData;
   const storageKey = "github-beginner-lab-editor-v1";
+  const debugAttemptStorageKey = "github-beginner-lab-debug-attempts-v1";
 
   const escapeHtml = (value = "") =>
     String(value)
@@ -10,21 +11,52 @@
       .replaceAll('"', "&quot;")
       .replaceAll("'", "&#039;");
 
-  const loadState = () => {
+  const loadStoredMap = (key) => {
     try {
-      return { ...data.editorDefaults, ...JSON.parse(localStorage.getItem(storageKey) || "{}") };
+      const value = JSON.parse(localStorage.getItem(key) || "{}");
+      return value && typeof value === "object" && !Array.isArray(value) ? value : {};
     } catch (error) {
-      return { ...data.editorDefaults };
+      return {};
     }
   };
 
+  const getActiveDebugChallenge = () => {
+    const debugId = new URLSearchParams(window.location.search).get("debug");
+    return data.debugChallenges.find((challenge) => challenge.id === debugId);
+  };
+
+  const saveDebugDraft = (challenge, code) => {
+    if (!challenge) return;
+    const attempts = loadStoredMap(debugAttemptStorageKey);
+    attempts[challenge.id] = {
+      ...(attempts[challenge.id] || {}),
+      code,
+      updatedAt: new Date().toISOString()
+    };
+    localStorage.setItem(debugAttemptStorageKey, JSON.stringify(attempts));
+  };
+
+  const loadState = () => {
+    const activeDebug = getActiveDebugChallenge();
+    const base = { ...data.editorDefaults, ...loadStoredMap(storageKey) };
+    if (!activeDebug) return base;
+
+    const attempt = loadStoredMap(debugAttemptStorageKey)[activeDebug.id] || {};
+    return {
+      ...base,
+      commands: attempt.code || activeDebug.code
+    };
+  };
+
   const saveState = () => {
+    const activeDebug = getActiveDebugChallenge();
     const state = {
       commands: document.getElementById("commandsInput").value,
       readme: document.getElementById("readmeInput").value,
       pages: document.getElementById("pagesInput").value
     };
     localStorage.setItem(storageKey, JSON.stringify(state));
+    saveDebugDraft(activeDebug, state.commands);
   };
 
   const markdownToHtml = (markdown) => {
@@ -131,12 +163,16 @@
 
   const reset = () => {
     localStorage.removeItem(storageKey);
-    const state = { ...data.editorDefaults };
+    const activeDebug = getActiveDebugChallenge();
+    const state = {
+      ...data.editorDefaults,
+      commands: activeDebug ? activeDebug.code : data.editorDefaults.commands
+    };
     document.getElementById("commandsInput").value = state.commands;
     document.getElementById("readmeInput").value = state.readme;
     document.getElementById("pagesInput").value = state.pages;
     renderPreview();
-    window.GithubLabLayout?.showToast("Simulator direset.");
+    window.GithubLabLayout?.showToast(activeDebug ? "Draft debugging direset." : "Simulator direset.");
   };
 
   document.addEventListener("DOMContentLoaded", () => {
@@ -145,6 +181,10 @@
     document.getElementById("commandsInput").value = state.commands;
     document.getElementById("readmeInput").value = state.readme;
     document.getElementById("pagesInput").value = state.pages;
+    const activeDebug = getActiveDebugChallenge();
+    if (activeDebug) {
+      document.querySelector(".editor-title")?.insertAdjacentHTML("beforeend", ` <span class="editor-debug-badge">debug: ${escapeHtml(activeDebug.title)}</span>`);
+    }
 
     bindTabs();
     document.getElementById("runEditor").addEventListener("click", () => {
